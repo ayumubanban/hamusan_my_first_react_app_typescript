@@ -32,6 +32,18 @@ const Counter: React.FC<{}> = () => {
     console.log('render was done.');
     renderTimes.current = renderTimes.current + 1;
   });
+  const ref = useRef<HTMLInputElement>(null!);
+  // 該当のinput要素にfocusする
+  const focusInput = () => {
+    // const current = ref.current;
+    // if (current != null) current.focus();
+
+    // nullの時はfocus()を実行しないよと
+    // ref.current?.focus();
+
+    // null!にするとエラー出なくなる。 !: Non-Null Assertion Operator
+    ref.current.focus();
+  }
 
   return (
     <div>
@@ -39,6 +51,8 @@ const Counter: React.FC<{}> = () => {
       <button onClick={increment}>+1</button>
       <button onClick={decrement}>-1</button>
       <div>This component was re-rendered {renderTimes.current} times!</div>
+      <input ref={ref} type="text"/>
+      <button onClick={focusInput}>Click Me!</button>
     </div>
   );
 };
