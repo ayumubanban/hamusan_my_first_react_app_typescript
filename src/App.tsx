@@ -1,4 +1,5 @@
 import React from 'react';
+import Counter from './Counter'
 
 interface AppProps {
   message?: string;
@@ -12,7 +13,12 @@ const App: React.FunctionComponent<AppProps> = ({ message }) => {
   // console.log(props);
   // const { message } = props;
   // return <div>React Starter Kit in TypeScript</div>;
-  return <div>{message}</div>;
+  // return <div>{message}</div>;
+  return (
+    <div>
+      <Counter />
+    </div>
+  );
 };
 
 // デフォルトのpropsを設定できる
